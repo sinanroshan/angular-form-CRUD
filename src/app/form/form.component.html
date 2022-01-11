@@ -1,0 +1,34 @@
+<form [formGroup]="data">
+    <div>
+        <label class="label">Title:</label>
+            <input class="form-control" type="text"
+            formControlName="title" >
+    </div>
+
+    <div>
+        <label class="label">Description:</label>
+        <textarea class="form-control"  rows="3" formControlName="description">
+        </textarea>
+    </div>
+    <button type="button" (click)="submit()">submit</button>
+</form>
+<br><br>
+<table  style="width: 99%; margin: auto; border: 1px solid black;" >
+    <thead class="table-dark">
+        <tr class="head">
+        <th>id</th>
+        <th>title</th>
+        <th>description </th>
+        <th >Delete</th>
+        <th > Update</th>
+        </tr>
+</thead>
+<tbody>
+    <tr *ngFor="let l of list">
+        <td >{{l.id}}</td>
+        <td >{{l.title}}</td>
+        <td >{{l.description}}</td>
+        <td><button (click)="deleteitem(l.id)">Delete</button></td>
+        <td><button (click)="Update(l.id,l.title,l.description)">Update</button></td>
+    </tr>
+</tbody>
